@@ -7,6 +7,8 @@
 *{
     margin: 0;
     padding: 0;
+
+    box-sizing: border-box;
 }
 
 .navbar {
@@ -16,11 +18,14 @@
     height: 10vh;
 
     position: fixed;
+    /* top: 0; */
 
     display: flex;
 
     justify-content: center;
     align-items: center;
+
+    z-index: 10;
 }
 
 .title,
@@ -51,23 +56,35 @@
 
 .card{
     width: 100vw;
-    height: 80vh;
+    height: 75vh;
 
-    background-color: red;
-    margin: 2vh 0;
+    background-color: var(--light-cream);
+    /* margin: 2vh 0; */
 
     display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    border: black solid 1px;
+}
+
+.card-title{
+    padding: .5em;
+}
+
+.card-articles{
+    padding: 0 1em 1em 1em;
+
+    display: flex;
+
     flex-direction: column;
 
     justify-content: space-around;
 }
 
-.card-title{
-    padding: 10px;
-}
-
-.card-articles{
-    padding: 1em;
+.card-description{
+    margin: 1em 0;
 }
 
 .img-container{
@@ -81,6 +98,8 @@
     display: flex;
 
     justify-content: center;
+
+    border: black solid 2px;
 }
 
 .img{
