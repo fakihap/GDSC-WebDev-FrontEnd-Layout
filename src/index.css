@@ -36,6 +36,11 @@
     font-weight: 900;
 }
 
+.title{
+    cursor: pointer;
+}
+
+
 .content{
     position: relative;
     top: 10vh;
@@ -67,6 +72,12 @@
     justify-content: space-between;
 
     border: black solid 1px;
+
+    transition: transform .3s ease-out;
+}
+
+.card:hover{
+    transform: scale(1.05);
 }
 
 .card-title{
@@ -88,9 +99,7 @@
 }
 
 .img-container{
-    /* object-fit: contain; */
-
-    width: 100vw;
+    width: 100%;
     height: 50vh;
 
     background-color: var(--dusk-gray);
@@ -103,7 +112,20 @@
 }
 
 .img{
-    object-fit: contain;
+    object-fit: cover;
 
     height: 100%;
+    width: 100%;
+}
+
+@media screen and (min-width: 1080px){
+    .card-container{
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .card{
+        width: 25vw;
+        height: 90vh;
+    }
 }
