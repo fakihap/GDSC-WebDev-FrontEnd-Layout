@@ -26,12 +26,16 @@ const getCard = (foodDatum) => {
     categoryDesc.innerHTML = "Category\t: " + foodDatum["strCategory"];
 
     var areaDesc = document.createElement("p");
-    areaDesc.innerHTML = "Origin\t: " + foodDatum["strArea"];
+    areaDesc.innerHTML = "Origin\t\t: " + foodDatum["strArea"];
 
-    cardDescription.innerHTML = "Read More";
+    var readMore = document.createElement("button");
+    readMore.innerText = "Read More";
+    // readMore.setAttribute("href", "src/food-template.html");
+    // readMore.setAttribute("onclick", "openMenu(this, " + foodDatum["s"] + " )");
 
     cardDescription.appendChild(categoryDesc);
     cardDescription.appendChild(areaDesc);
+    cardDescription.appendChild(readMore);
 
     cardArticles.appendChild(cardDescription);
 
