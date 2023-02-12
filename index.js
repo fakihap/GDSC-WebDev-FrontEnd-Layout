@@ -72,6 +72,41 @@ const updateMenu = () => {
 }
 
 const openDetail = (id) => {
+    const cardTitle = document.querySelector(".detail-card-title");
+
+    const cardImg = document.querySelector(".detail-img");
+
+    const cardDesc = document.querySelector(".detail-card-description-desc");
+
+    const cardSteps = document.querySelector(".detail-card-steps");
+
+    var foodData = fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id, {
+        method : "GET",
+        headers : {
+            "Accept" : "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(response => 
+        {   
+            cardTitle.innerText = response["meals"][0]["strMeal"];
+
+            cardImg.setAttribute("src", response["meals"][0]["strMealThumb"]);
+            cardImg.setAttribute("alt", response["meals"][0]["strMeal"]);
+
+            var categoryDesc = document.createElement("p");
+            categoryDesc.innerHTML = "Category\t: " + response["meals"][0]["strCategory"];
+
+            var areaDesc = document.createElement("p");
+            areaDesc.innerHTML = "Origin\t\t: " + response["meals"][0]["strArea"];
+
+            cardDesc.innerHTML = "";
+            cardDesc.appendChild(categoryDesc);
+            cardDesc.appendChild(areaDesc);
+
+            cardSteps.innerText = response["meals"][0]["strInstructions"]
+        })
+
     var overlay = document.querySelector(".overlay");
     var detailCloseButton = document.querySelector(".detail-close-button");
 
