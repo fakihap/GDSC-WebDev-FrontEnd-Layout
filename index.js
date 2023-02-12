@@ -62,9 +62,8 @@ const updateMenu = () => {
     .then(response => response.json())
     .then(response => 
         {   
-            for(var i = 0; i < targetContainer.childElementCount; i++){
-                targetContainer.removeChild(targetContainer.firstChild);
-            }
+            targetContainer.innerHTML = ""; // delete all content
+
             for(var i = 0; i < response["meals"].length; i++){
                 targetContainer.appendChild(getCard(response["meals"][i]));
             }
