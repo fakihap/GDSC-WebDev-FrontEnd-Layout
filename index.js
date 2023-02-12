@@ -30,8 +30,7 @@ const getCard = (foodDatum) => {
 
     var readMore = document.createElement("button");
     readMore.innerText = "Read More";
-    // readMore.setAttribute("href", "src/food-template.html");
-    // readMore.setAttribute("onclick", "openMenu(this, " + foodDatum["s"] + " )");
+    readMore.setAttribute("onclick", "openDetail(" + foodDatum["idMeal"] + ")");
 
     cardDescription.appendChild(categoryDesc);
     cardDescription.appendChild(areaDesc);
@@ -55,8 +54,6 @@ const updateMenu = () => {
 
     var targetContainer = document.querySelector(".card-container");
 
-    // console.log(searchBar.cloneNode(false).value)
-
     var foodData = fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + searchBar.value, {
         method : "GET",
         headers : {
@@ -66,12 +63,27 @@ const updateMenu = () => {
     .then(response => response.json())
     .then(response => 
         {   
-            targetContainer.innerHTML = ""; // delete all content
+            targetContainer.innerHTML = "";
 
             for(var i = 0; i < response["meals"].length; i++){
                 targetContainer.appendChild(getCard(response["meals"][i]));
             }
         })
+}
+
+const openDetail = (id) => {
+    var overlay = document.querySelector(".overlay");
+    var detailCloseButton = document.querySelector(".detail-close-button");
+
+    overlay.classList.add("active");
+    detailCloseButton.classList.add("active");
+}
+
+const closeDetail = (item) => {
+    var overlay = document.querySelector(".overlay");
+
+    item.classList.remove("active");
+    overlay.classList.remove("active");
 }
 
 updateMenu();

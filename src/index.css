@@ -125,14 +125,14 @@
 }
 
 .overlay{
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 90vw;
+    left: 100vw;
 
     background-color: var(--light-cream);
 
     width: 100vw;
-    height: 100vh;
+    height: max-content;
 
     transition: left 0.3s ease-out;
 }

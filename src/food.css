@@ -48,7 +48,7 @@
 
 .detail-card{
     width: 100vw;
-    height: 100%;
+    /* height: 100%; */
 
     background-color: var(--light-cream);
     /* margin: 2vh 0; */
@@ -117,6 +117,23 @@
 
 .detail-img:hover{
     transform: scaleX(1.05);
+}
+
+.detail-close-button {
+    left: 110vw;
+}
+
+.detail-close-button.active{
+    position: fixed;
+    top: 15vh;
+    left: 5vw;
+
+    height: 3vh;
+    width: 5vw;
+
+    z-index: 1000;
+
+    transition: left 0.3s ease-out;
 }
 
 @media screen and (min-width: 1080px){
